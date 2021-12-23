@@ -15,5 +15,10 @@ namespace InAndOut.Controllers
         {
             return View();
         }
+
+        public IActionResult Details(int id)
+        {
+            return Ok("You have entered id: " + id);
+        }
     }
 }
