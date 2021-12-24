@@ -10,35 +10,39 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InAndOut.Controllers
 {
-    public class ItemController : Controller
+    public class ExpensesController : Controller
     {
         private readonly ApplicationDBContext _context;
 
-        public ItemController(ApplicationDBContext context)
+        public ExpensesController(ApplicationDBContext context)
         {
             _context = context;
         }
         // GET: /<controller>/
         public IActionResult Index()
         {
-            IEnumerable<Item> objList = _context.Items;
+            IEnumerable<Expenses> objList = _context.Expenses;
             return View(objList);
         }
 
-        //GET- Create
+        //GET Create
         public IActionResult Create()
         {
             return View();
         }
 
-        //Post- Create
+        //POST Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Item obj)
+        public IActionResult Create(Expenses obj)
         {
-            _context.Items.Add(obj);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _context.Expenses.Add(obj);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
         }
     }
 }
