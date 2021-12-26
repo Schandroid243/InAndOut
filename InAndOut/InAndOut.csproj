@@ -23,11 +23,15 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Views\Item\" />
     <None Remove="Views\Expenses\" />
+    <None Remove="Views\Expenses %28copie%29\" />
+    <None Remove="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Appointement\" />
     <Folder Include="Data\" />
     <Folder Include="Views\Item\" />
     <Folder Include="Views\Expenses\" />
+    <Folder Include="Views\ExpenseType\" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
 </Project>
